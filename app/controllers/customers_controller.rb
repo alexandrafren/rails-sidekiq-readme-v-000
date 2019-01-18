@@ -6,6 +6,7 @@ class CustomersController < ApplicationController
   end
 
   def upload
+    LeadsWorker.
     redirect_to customers_path
   end
 
