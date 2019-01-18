@@ -38,19 +38,57 @@
 #define JEMALLOC_USE_CXX_THROW  
 #define HAVE_MALLOC_H 1
 #define JEMALLOC_USABLE_SIZE_CONST 
+#define JEMALLOC_HAVE_ATTR  
+#define JEMALLOC_HAVE_ATTR_ALLOC_SIZE  
+#define JEMALLOC_HAVE_ATTR_FORMAT_GNU_PRINTF  
+#define JEMALLOC_HAVE_ATTR_FORMAT_PRINTF  
+#define JEMALLOC_PREFIX "je_"
+#define JEMALLOC_CPREFIX "JE_"
+#define JEMALLOC_OVERRIDE_MEMALIGN  
+#define JEMALLOC_OVERRIDE_VALLOC  
+#define JEMALLOC_PRIVATE_NAMESPACE je_
+#define JEMALLOC_CONFIG_MALLOC_CONF ""
+#define JEMALLOC_STATS  
+#define JEMALLOC_MAPS_COALESCE  
+#define JEMALLOC_RETAIN  
+#define JEMALLOC_DSS  
+#define JEMALLOC_FILL  
+#define JEMALLOC_CACHE_OBLIVIOUS  
+#define JEMALLOC_INTERNAL_UNREACHABLE __builtin_unreachable
+#define JEMALLOC_INTERNAL_FFSLL __builtin_ffsll
+#define JEMALLOC_INTERNAL_FFSL __builtin_ffsl
+#define JEMALLOC_INTERNAL_FFS __builtin_ffs
+#define LG_QUANTUM 3
+#define LG_PAGE 12
+#define LG_HUGEPAGE 21
+#define JEMALLOC_HAVE_PTHREAD  
+#define HAVE_PTHREAD_H 1
+#define HAVE_DLFCN_H 1
+#define JEMALLOC_HAVE_DLSYM  
+#define JEMALLOC_HAVE_PTHREAD_ATFORK  
+#define JEMALLOC_HAVE_PTHREAD_SETNAME_NP  
+#define JEMALLOC_HAVE_CLOCK_MONOTONIC_COARSE 1
+#define JEMALLOC_HAVE_CLOCK_MONOTONIC 1
+#define JEMALLOC_USE_SYSCALL  
+#define JEMALLOC_HAVE_SECURE_GETENV  
+#define JEMALLOC_HAVE_SCHED_GETCPU  
+#define JEMALLOC_HAVE_SCHED_SETAFFINITY  
+#define JEMALLOC_TLS
+#define JEMALLOC_GCC_ATOMIC_ATOMICS 1
+#define JEMALLOC_GCC_SYNC_ATOMICS 1
+#define JEMALLOC_HAVE_MADVISE  
+#define JEMALLOC_PURGE_MADVISE_FREE  
+#define JEMALLOC_DEFINE_MADVISE_FREE  
 /* end confdefs.h.  */
 
-/* Override any GCC internal prototype to avoid an error.
-   Use char because int might match the return type of a GCC
-   builtin and then its argument prototype would still apply.  */
-#ifdef __cplusplus
-extern "C"
-#endif
-char log ();
+#include <sys/mman.h>
+
 int
 main ()
 {
-return log ();
+
+	madvise((void *)0, 0, MADV_DONTNEED);
+
   ;
   return 0;
 }

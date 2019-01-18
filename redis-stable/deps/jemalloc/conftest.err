@@ -1,3 +1,0 @@
-conftest.c:49:6: warning: conflicting types for built-in function 'log'
- char log ();
-      ^
